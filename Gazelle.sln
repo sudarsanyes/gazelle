@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gazelle", "Gazelle\Gazelle.csproj", "{497D7B4A-67C5-40D3-BFDD-5183FF5AD3A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gazelle.Common", "Gazelle.Common\Gazelle.Common.csproj", "{5A987F91-C982-41E1-88A4-3E7BB3F73E2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{497D7B4A-67C5-40D3-BFDD-5183FF5AD3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{497D7B4A-67C5-40D3-BFDD-5183FF5AD3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{497D7B4A-67C5-40D3-BFDD-5183FF5AD3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{497D7B4A-67C5-40D3-BFDD-5183FF5AD3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A987F91-C982-41E1-88A4-3E7BB3F73E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A987F91-C982-41E1-88A4-3E7BB3F73E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A987F91-C982-41E1-88A4-3E7BB3F73E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A987F91-C982-41E1-88A4-3E7BB3F73E2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B85DA679-64B8-4011-95C0-1806D67498D9}
+	EndGlobalSection
+EndGlobal

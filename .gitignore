@@ -1,0 +1,6 @@
+/.vs/*
+/Gazelle/bin/*
+/Gazelle/obj/*
+/Gazelle.Common/bin/*
+/Gazelle.Common/obj/*
+/packages/*

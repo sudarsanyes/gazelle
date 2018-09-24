@@ -1,0 +1,48 @@
+﻿<Window x:Class="Gazelle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:local="clr-namespace:Gazelle"
+        xmlns:tools="clr-namespace:Gazelle.Tools"
+        mc:Ignorable="d"
+        Title="Gazelle"
+        Height="450"
+        Width="800"
+        Loaded="OnWindowLoaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"
+                           MaxHeight="120" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <tools:ToolBarPanel Grid.Row="0" />
+        <Grid Grid.Row="1"
+              Background="LightGray"
+              Focusable="True">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Auto">
+                <Grid Margin="30"
+                      RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <ScaleTransform x:Name="CanvasTransform" />
+                    </Grid.RenderTransform>
+                    <Image x:Name="ImageCanvas"
+                           Stretch="None">
+                        <Image.Effect>
+                            <DropShadowEffect ShadowDepth="0"
+                                              BlurRadius="8" />
+                        </Image.Effect>
+                    </Image>
+                    <Canvas x:Name="DrawingCanvas"
+                            Background="Transparent">
+                    </Canvas>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+        <ContentControl prism:RegionManager.RegionName="StatusBar"
+                        Grid.Row="2" />
+    </Grid>
+</Window>
