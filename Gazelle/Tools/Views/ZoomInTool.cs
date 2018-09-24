@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Gazelle.Tools
+namespace Gazelle.Tools.Views
 {
     public class ZoomInTool : ITool
     {
@@ -32,7 +32,7 @@ namespace Gazelle.Tools
         {
             get
             {
-                var button = new Button() { Content = "Zoom In" };
+                var button = new Button() { Content = "Zoom In", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
                 button.Click += (sender, args) =>
                 {
                     Editor.ZoomIn();

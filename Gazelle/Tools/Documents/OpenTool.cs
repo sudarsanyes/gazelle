@@ -12,15 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Gazelle.Tools
+namespace Gazelle.Tools.Documents
 {
-    public class ImageTool : ITool
+    public class OpenTool : ITool
     {
         public Type GraphicalObjectType
         {
             get
             {
-                return typeof(Image);
+                throw new NotSupportedException();
             }
         }
 
@@ -28,7 +28,7 @@ namespace Gazelle.Tools
         {
             get
             {
-                return "Image";
+                return "Open";
             }
         }
 
@@ -36,19 +36,10 @@ namespace Gazelle.Tools
         {
             get
             {
-                var button = new Button() { Content = "Image" };
+                var button = new Button() { Content = "Open Image", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
                 button.Click += (sender, args) => 
                 {
-                    System.Windows.Forms.OpenFileDialog openDialog = new System.Windows.Forms.OpenFileDialog();
-                    var result = openDialog.ShowDialog();
-                    if (result == System.Windows.Forms.DialogResult.OK)
-                    {
-                        var file = openDialog.FileName;
-                        var imageObj = new Image();
-                        imageObj.Source = new BitmapImage(new Uri(file));
-                        Editor.AddObject(imageObj);
-
-                    }
+                    Editor.OpenDocument();
                 };
                 return button;
             }

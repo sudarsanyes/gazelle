@@ -10,13 +10,13 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Shapes;
 
-namespace Gazelle.Tools
+namespace Gazelle.Tools.Lines
 {
-    public class DimensionLineDrawingBehavior : IDrawingBehavior
+    public class LineDrawingBehavior : IDrawingBehavior
     {
         private IGraphicalEditor editor;
 
-        public DimensionLineDrawingBehavior(IGraphicalEditor editor)
+        public LineDrawingBehavior(IGraphicalEditor editor)
         {
             this.editor = editor;
         }

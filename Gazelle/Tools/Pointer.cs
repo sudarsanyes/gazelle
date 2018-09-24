@@ -32,7 +32,7 @@ namespace Gazelle.Tools
         {
             get
             {
-                var button = new Button() { Content = "Pointer" };
+                var button = new Button() { Content = "Pointer", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
                 button.Click += (sender, args) =>
                 {
                     Editor.ActiveTool = this;

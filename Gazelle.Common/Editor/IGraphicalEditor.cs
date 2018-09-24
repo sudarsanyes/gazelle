@@ -25,5 +25,7 @@ namespace Gazelle.Common.Editor
         void ZoomIn();
 
         void ZoomOut();
+
+        void Reposition();
     }
 }

@@ -91,6 +91,7 @@ namespace Gazelle
             zoomFactor = zoomFactor + 0.1;
             CanvasTransform.ScaleX = zoomFactor;
             CanvasTransform.ScaleY = zoomFactor;
+            Reposition();
         }
 
         public void ZoomOut()
@@ -98,6 +99,13 @@ namespace Gazelle
             zoomFactor = zoomFactor - 0.1;
             CanvasTransform.ScaleX = zoomFactor;
             CanvasTransform.ScaleY = zoomFactor;
+            Reposition();
+        }
+
+        public void Reposition()
+        {
+            DrawingCanvasScrollViewer.ScrollToHorizontalOffset(DrawingCanvasScrollViewer.ScrollableWidth / 2);
+            DrawingCanvasScrollViewer.ScrollToVerticalOffset(DrawingCanvasScrollViewer.ScrollableHeight / 2);
         }
 
         private void OnWindowLoaded(object sender, RoutedEventArgs e)

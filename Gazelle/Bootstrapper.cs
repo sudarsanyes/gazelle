@@ -9,6 +9,11 @@ using System.Windows;
 using System.Windows.Controls;
 using Gazelle.Common.Editor;
 using Gazelle.Tools;
+using Gazelle.Tools.Documents;
+using Gazelle.Tools.Lines;
+using Gazelle.Tools.Pictograms;
+using Gazelle.Tools.Shapes;
+using Gazelle.Tools.Views;
 using Microsoft.Practices.Unity;
 using Prism.Regions;
 using Prism.Unity;
@@ -41,15 +46,15 @@ namespace Gazelle
             Container.RegisterType<IGraphicalEditor, MainWindow>(new ContainerControlledLifetimeManager());
             Container.RegisterType<DrawingManager>(new ContainerControlledLifetimeManager());
 
-            Container.RegisterType<ITool, NewTool>("NewTool");
+            Container.RegisterType<ITool, OpenTool>("NewTool");
             Container.RegisterType<ITool, Pointer>("Pointer");
-            Container.RegisterType<ITool, DimensionLine>("DimensionLine");
-            Container.RegisterType<ITool, RectangleObject>("RectangleObject");
+            Container.RegisterType<ITool, LineTool>("DimensionLine");
+            Container.RegisterType<ITool, RectangleTool>("RectangleObject");
             Container.RegisterType<ITool, ImageTool>("ImageTool");
             Container.RegisterType<ITool, ZoomInTool>("ZoomInTool");
             Container.RegisterType<ITool, ZoomOutTool>("ZoomOutTool");
 
-            Container.RegisterType<IDrawingBehavior, DimensionLineDrawingBehavior>("LineDrawingBehavior");
+            Container.RegisterType<IDrawingBehavior, LineDrawingBehavior>("LineDrawingBehavior");
         }
     }
 

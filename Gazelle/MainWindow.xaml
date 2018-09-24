@@ -11,6 +11,17 @@
         Height="450"
         Width="800"
         Loaded="OnWindowLoaded">
+    <Window.Resources>
+        <Style x:Key="ToolBarButtonStyle"
+               TargetType="{x:Type Button}">
+            <Setter Property="Margin"
+                    Value="3,3,3,3" />
+            <Setter Property="MinHeight"
+                    Value="60" />
+            <Setter Property="FontSize"
+                    Value="18" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"
@@ -22,7 +33,7 @@
         <Grid Grid.Row="1"
               Background="LightGray"
               Focusable="True">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+            <ScrollViewer x:Name="DrawingCanvasScrollViewer" HorizontalScrollBarVisibility="Auto"
                           VerticalScrollBarVisibility="Auto">
                 <Grid Margin="30"
                       RenderTransformOrigin="0.5,0.5">

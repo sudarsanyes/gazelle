@@ -7,20 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace Gazelle.Tools
+namespace Gazelle.Tools.Views
 {
-    public class NewTool : ITool
+    public class ZoomOutTool : ITool
     {
         public Type GraphicalObjectType
         {
             get
             {
-                throw new NotSupportedException();
+                return null;
             }
         }
 
@@ -28,7 +24,7 @@ namespace Gazelle.Tools
         {
             get
             {
-                return "New";
+                return "ZoomOut";
             }
         }
 
@@ -36,10 +32,10 @@ namespace Gazelle.Tools
         {
             get
             {
-                var button = new Button() { Content = "New" };
-                button.Click += (sender, args) => 
+                var button = new Button() { Content = "Zoom Out", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
+                button.Click += (sender, args) =>
                 {
-                    Editor.OpenDocument();
+                    Editor.ZoomOut();
                 };
                 return button;
             }
@@ -48,7 +44,7 @@ namespace Gazelle.Tools
         [Dependency()]
         public IGraphicalEditor Editor { get; set; }
 
-        public bool CanToolBeAddedToEditor => false;
+        public bool CanToolBeAddedToEditor => false; 
 
         public void OnActivated()
         {
