@@ -84,6 +84,7 @@ namespace Gazelle
                 var file = openDialog.FileName;
                 ImageCanvas.Source = new BitmapImage(new Uri(file));
             }
+            Reposition();
         }
 
         public void ZoomIn()

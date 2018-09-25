@@ -16,10 +16,14 @@
                TargetType="{x:Type Button}">
             <Setter Property="Margin"
                     Value="3,3,3,3" />
+            <Setter Property="Padding"
+                    Value="8,8,8,8" />
+            <Setter Property="MinWidth"
+                    Value="73" />
             <Setter Property="MinHeight"
-                    Value="60" />
+                    Value="45" />
             <Setter Property="FontSize"
-                    Value="18" />
+                    Value="14" />
         </Style>
     </Window.Resources>
     <Grid>
