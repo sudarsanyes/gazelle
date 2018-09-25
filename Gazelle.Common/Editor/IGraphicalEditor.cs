@@ -15,17 +15,22 @@ namespace Gazelle.Common.Editor
 
         IDrawingBehavior ActiveBehavior { get; }
 
-        void OpenDocument();
+        void OpenDocument(string fileName);
 
         void AddObject(FrameworkElement obj);
 
         FrameworkElement GetPreviouslyAddedObject();
 
         void RemoveObject(FrameworkElement obj);
+
+        FrameworkElement GetObjectBehindCursor(double tolerance = 0.0);
+
         void ZoomIn();
 
         void ZoomOut();
 
         void Reposition();
+
+        void ExportAsImage(string fileName);
     }
 }

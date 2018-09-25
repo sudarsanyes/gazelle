@@ -43,17 +43,17 @@ namespace Gazelle.Tools.Shapes
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         [Dependency()]
         public IGraphicalEditor Editor { get; set; }
 
         public bool CanToolBeAddedToEditor => true;
 
         public void OnActivated()
+        {
+            Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorRectangle"]).Cursor;
+        }
+
+        public void OnDeactivated()
         {
         }
 

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Gazelle.Tools.Views
+namespace Gazelle.Tools.Core
 {
-    public class ZoomInTool : ITool
+    public class Pointer : ITool
     {
         public Type GraphicalObjectType
         {
@@ -24,7 +24,7 @@ namespace Gazelle.Tools.Views
         {
             get
             {
-                return "ZoomIn";
+                return "Pointer";
             }
         }
 
@@ -32,10 +32,10 @@ namespace Gazelle.Tools.Views
         {
             get
             {
-                var button = new Button() { Content = "Zoom In", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
+                var button = new Button() { Content = "Pointer", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
                 button.Click += (sender, args) =>
                 {
-                    Editor.ZoomIn();
+                    Editor.ActiveTool = this;
                 };
                 return button;
             }
@@ -56,7 +56,7 @@ namespace Gazelle.Tools.Views
 
         public FrameworkElement CreateObject(Rect bounds)
         {
-            throw new NotSupportedException();
+            throw new NotSupportedException("Pointer cannot be added to the canvas.");
         }
     }
 }

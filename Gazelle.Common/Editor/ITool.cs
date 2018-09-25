@@ -11,6 +11,8 @@ namespace Gazelle.Common.Editor
     {
         void OnActivated();
 
+        void OnDeactivated();
+
         Type GraphicalObjectType { get; }
 
         string Name { get; }

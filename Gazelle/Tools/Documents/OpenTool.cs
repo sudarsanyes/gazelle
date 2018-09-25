@@ -39,7 +39,13 @@ namespace Gazelle.Tools.Documents
                 var button = new Button() { Content = "Open Image", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
                 button.Click += (sender, args) => 
                 {
-                    Editor.OpenDocument();
+                    System.Windows.Forms.OpenFileDialog openDialog = new System.Windows.Forms.OpenFileDialog();
+                    openDialog.Filter = "Image files |*.png;*.jpg;*.jpeg;*.bmp";
+                    var result = openDialog.ShowDialog();
+                    if (result == System.Windows.Forms.DialogResult.OK)
+                    {
+                        Editor.OpenDocument(openDialog.FileName);
+                    }
                 };
                 return button;
             }
@@ -51,6 +57,10 @@ namespace Gazelle.Tools.Documents
         public bool CanToolBeAddedToEditor => false;
 
         public void OnActivated()
+        {
+        }
+
+        public void OnDeactivated()
         {
         }
 

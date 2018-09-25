@@ -50,6 +50,10 @@ namespace Gazelle.Tools.Views
         {
         }
 
+        public void OnDeactivated()
+        {
+        }
+
         public FrameworkElement CreateObject(Rect bounds)
         {
             throw new NotSupportedException();

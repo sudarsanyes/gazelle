@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Gazelle.Common.Editor;
 using Gazelle.Tools;
+using Gazelle.Tools.Core;
 using Gazelle.Tools.Documents;
 using Gazelle.Tools.Lines;
 using Gazelle.Tools.Pictograms;
@@ -46,8 +47,10 @@ namespace Gazelle
             Container.RegisterType<IGraphicalEditor, MainWindow>(new ContainerControlledLifetimeManager());
             Container.RegisterType<DrawingManager>(new ContainerControlledLifetimeManager());
 
-            Container.RegisterType<ITool, OpenTool>("NewTool");
             Container.RegisterType<ITool, Pointer>("Pointer");
+            Container.RegisterType<ITool, EraserTool>("Eraser");
+            Container.RegisterType<ITool, OpenTool>("NewTool");
+            Container.RegisterType<ITool, ExportTool>("ExportTool");
             Container.RegisterType<ITool, LineTool>("Line");
             Container.RegisterType<ITool, HorizontalDimensionLineTool>("HorizontalDimensionLine");
             Container.RegisterType<ITool, VerticalDimensionLineTool>("VerticalDimensionLine");

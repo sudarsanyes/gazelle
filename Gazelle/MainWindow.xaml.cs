@@ -5,6 +5,7 @@ using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +54,12 @@ namespace Gazelle
             get { return activeTool; }
             set
             {
+                // Reset old tool. 
                 ActiveBehavior = null;
+                activeTool?.OnDeactivated();
+                Canvas.Cursor = Cursors.Arrow;
+
+                // Set new tool. 
                 activeTool = value;
                 activeTool?.OnActivated();
                 if (activeTool.CanToolBeAddedToEditor && behaviors.TryGetValue(activeTool.GraphicalObjectType, out IDrawingBehavior behavior))
@@ -75,16 +81,20 @@ namespace Gazelle
             DrawingCanvas.Children.Remove(obj);
         }
 
-        public void OpenDocument()
+        public FrameworkElement GetObjectBehindCursor(double tolerance = 0.0)
         {
-            System.Windows.Forms.OpenFileDialog openDialog = new System.Windows.Forms.OpenFileDialog();
-            var result = openDialog.ShowDialog();
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                var file = openDialog.FileName;
-                ImageCanvas.Source = new BitmapImage(new Uri(file));
-            }
+            return DrawingCanvas.InputHitTest(Mouse.GetPosition(Canvas)) as FrameworkElement;
+        }
+
+        public void OpenDocument(string fileName)
+        {
+            ImageCanvas.Source = new BitmapImage(new Uri(fileName));
             Reposition();
+        }
+
+        public void ExportAsImage(string fileName)
+        {
+            SaveToPng(DrawingCanvasContainer, fileName);
         }
 
         public void ZoomIn()
@@ -129,6 +139,23 @@ namespace Gazelle
         public FrameworkElement GetPreviouslyAddedObject()
         {
             return DrawingCanvas.Children[DrawingCanvas.Children.Count - 1] as FrameworkElement;
+        }
+        private void SaveToPng(FrameworkElement visual, string fileName)
+        {
+            var encoder = new PngBitmapEncoder();
+            SaveUsingEncoder(visual, fileName, encoder);
+        }
+
+        private void SaveUsingEncoder(FrameworkElement visual, string fileName, BitmapEncoder encoder)
+        {
+            RenderTargetBitmap bitmap = new RenderTargetBitmap((int)visual.ActualWidth, (int)visual.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+            bitmap.Render(visual);
+            BitmapFrame frame = BitmapFrame.Create(bitmap);
+            encoder.Frames.Add(frame);
+            using (var stream = File.Create(fileName))
+            {
+                encoder.Save(stream);
+            }
         }
     }
 }

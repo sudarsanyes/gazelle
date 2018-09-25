@@ -1,4 +1,6 @@
 ﻿using Gazelle.Common.Editor;
+using Gazelle.Tools;
+using Gazelle.Tools.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,13 +52,24 @@ namespace Gazelle
 
         private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (editor.ActiveTool != null && editor.ActiveTool.CanToolBeAddedToEditor)
+            if (editor.ActiveTool != null)
             {
-                State = DrawingState.Drawing;
-                var origin = e.GetPosition(editor.Canvas as IInputElement);
-                var graphicalObject = editor.ActiveTool.CreateObject(new Rect(origin, new Size(InitialSize, InitialSize)));
-                editor.AddObject(graphicalObject);
-                startPoint = origin;
+                if (editor.ActiveTool is Pointer)
+                {
+                    // Do nothing. 
+                }
+                else if (editor.ActiveTool is EraserTool)
+                {
+                    editor.RemoveObject(editor.GetObjectBehindCursor(5));
+                }
+                else if (editor.ActiveTool.CanToolBeAddedToEditor)
+                {
+                    State = DrawingState.Drawing;
+                    var origin = e.GetPosition(editor.Canvas as IInputElement);
+                    var graphicalObject = editor.ActiveTool.CreateObject(new Rect(origin, new Size(InitialSize, InitialSize)));
+                    editor.AddObject(graphicalObject);
+                    startPoint = origin;
+                }
             }
         }
 

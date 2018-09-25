@@ -82,6 +82,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DrawingManager.cs" />
+    <Compile Include="Tools\Documents\ExportTool.cs" />
     <Compile Include="Tools\Lines\DimensionLine.cs" />
     <Compile Include="Tools\Documents\OpenTool.cs" />
     <Compile Include="Tools\Lines\VerticalDimensionLineDrawingBehavior.cs" />
@@ -90,7 +91,8 @@
     <Compile Include="Tools\Lines\VerticalDimensionLineTool.cs" />
     <Compile Include="Tools\Pictograms\ImageTool.cs" />
     <Compile Include="Tools\Lines\LineDrawingBehavior.cs" />
-    <Compile Include="Tools\Pointer.cs" />
+    <Compile Include="Tools\Core\EraserTool.cs" />
+    <Compile Include="Tools\Core\Pointer.cs" />
     <Compile Include="Tools\Views\ZoomOutTool.cs" />
     <Compile Include="Tools\Views\ZoomInTool.cs" />
     <Compile Include="Tools\Shapes\RectangleTool.cs" />
@@ -152,6 +154,13 @@
       <Project>{5a987f91-c982-41e1-88a4-3e7bb3f73e2d}</Project>
       <Name>Gazelle.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ArrowWithBox.cur" />
+    <Resource Include="Resources\ArrowWithLine.cur" />
+    <Resource Include="Resources\ArrowWithText.cur" />
+    <Resource Include="Resources\Arrow.cur" />
+    <Resource Include="Resources\ArrowWithEraser.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

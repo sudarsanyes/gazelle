@@ -12,15 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Gazelle.Tools.Pictograms
+namespace Gazelle.Tools.Documents
 {
-    public class ImageTool : ITool
+    public class ExportTool : ITool
     {
         public Type GraphicalObjectType
         {
             get
             {
-                return typeof(Image);
+                throw new NotSupportedException();
             }
         }
 
@@ -28,7 +28,7 @@ namespace Gazelle.Tools.Pictograms
         {
             get
             {
-                return "Image";
+                return "Export";
             }
         }
 
@@ -36,18 +36,15 @@ namespace Gazelle.Tools.Pictograms
         {
             get
             {
-                var button = new Button() { Content = "Image", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
+                var button = new Button() { Content = "Export as Image", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
                 button.Click += (sender, args) => 
                 {
-                    System.Windows.Forms.OpenFileDialog openDialog = new System.Windows.Forms.OpenFileDialog();
-                    var result = openDialog.ShowDialog();
+                    System.Windows.Forms.SaveFileDialog fileDialog = new System.Windows.Forms.SaveFileDialog();
+                    fileDialog.Filter = "Image files |*.png";
+                    var result = fileDialog.ShowDialog();
                     if (result == System.Windows.Forms.DialogResult.OK)
                     {
-                        var file = openDialog.FileName;
-                        var imageObj = new Image();
-                        imageObj.Source = new BitmapImage(new Uri(file));
-                        Editor.AddObject(imageObj);
-
+                        Editor.ExportAsImage(fileDialog.FileName);
                     }
                 };
                 return button;

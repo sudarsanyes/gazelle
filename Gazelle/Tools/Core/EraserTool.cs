@@ -1,4 +1,5 @@
 ﻿using Gazelle.Common.Editor;
+using Gazelle.Properties;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
@@ -7,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
-namespace Gazelle.Tools
+namespace Gazelle.Tools.Core
 {
-    public class Pointer : ITool
+    public class EraserTool : ITool
     {
         public Type GraphicalObjectType
         {
@@ -24,7 +26,7 @@ namespace Gazelle.Tools
         {
             get
             {
-                return "Pointer";
+                return "Eraser";
             }
         }
 
@@ -32,7 +34,7 @@ namespace Gazelle.Tools
         {
             get
             {
-                var button = new Button() { Content = "Pointer", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
+                var button = new Button() { Content = "Eraser", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
                 button.Click += (sender, args) =>
                 {
                     Editor.ActiveTool = this;
@@ -47,6 +49,11 @@ namespace Gazelle.Tools
         public bool CanToolBeAddedToEditor => false; 
 
         public void OnActivated()
+        {
+            Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorEraser"]).Cursor;
+        }
+
+        public void OnDeactivated()
         {
         }
 

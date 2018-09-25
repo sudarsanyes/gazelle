@@ -12,6 +12,15 @@
         Width="800"
         Loaded="OnWindowLoaded">
     <Window.Resources>
+        <!-- Cursors -->
+        <TextBlock x:Key="CursorEraser"
+                   Cursor="Resources/ArrowWithEraser.cur" />
+        <TextBlock x:Key="CursorLine"
+                   Cursor="Resources/ArrowWithLine.cur" />
+        <TextBlock x:Key="CursorRectangle"
+                   Cursor="Resources/ArrowWithBox.cur" />
+
+        <!-- Styles -->
         <Style x:Key="ToolBarButtonStyle"
                TargetType="{x:Type Button}">
             <Setter Property="Margin"
@@ -39,7 +48,8 @@
               Focusable="True">
             <ScrollViewer x:Name="DrawingCanvasScrollViewer" HorizontalScrollBarVisibility="Auto"
                           VerticalScrollBarVisibility="Auto">
-                <Grid Margin="30"
+                <Grid x:Name="DrawingCanvasContainer" 
+                      Margin="30"
                       RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>
                         <ScaleTransform x:Name="CanvasTransform" />
