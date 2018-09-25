@@ -84,6 +84,10 @@
     <Compile Include="DrawingManager.cs" />
     <Compile Include="Tools\Lines\DimensionLine.cs" />
     <Compile Include="Tools\Documents\OpenTool.cs" />
+    <Compile Include="Tools\Lines\VerticalDimensionLineDrawingBehavior.cs" />
+    <Compile Include="Tools\Lines\HorizontalDimensionLineTool.cs" />
+    <Compile Include="Tools\Lines\HorizontalDimensionLineDrawingBehavior.cs" />
+    <Compile Include="Tools\Lines\VerticalDimensionLineTool.cs" />
     <Compile Include="Tools\Pictograms\ImageTool.cs" />
     <Compile Include="Tools\Lines\LineDrawingBehavior.cs" />
     <Compile Include="Tools\Pointer.cs" />

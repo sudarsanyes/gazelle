@@ -48,13 +48,17 @@ namespace Gazelle
 
             Container.RegisterType<ITool, OpenTool>("NewTool");
             Container.RegisterType<ITool, Pointer>("Pointer");
-            Container.RegisterType<ITool, LineTool>("DimensionLine");
+            Container.RegisterType<ITool, LineTool>("Line");
+            Container.RegisterType<ITool, HorizontalDimensionLineTool>("HorizontalDimensionLine");
+            Container.RegisterType<ITool, VerticalDimensionLineTool>("VerticalDimensionLine");
             Container.RegisterType<ITool, RectangleTool>("RectangleObject");
             Container.RegisterType<ITool, ImageTool>("ImageTool");
             Container.RegisterType<ITool, ZoomInTool>("ZoomInTool");
             Container.RegisterType<ITool, ZoomOutTool>("ZoomOutTool");
 
             Container.RegisterType<IDrawingBehavior, LineDrawingBehavior>("LineDrawingBehavior");
+            Container.RegisterType<IDrawingBehavior, HorizontalDimensionLineDrawingBehavior>("HorizontalDimensionLineDrawingBehavior");
+            Container.RegisterType<IDrawingBehavior, VerticalDimensionLineDrawingBehavior>("VerticalDimensionLineDrawingBehavior");
         }
     }
 

@@ -119,7 +119,10 @@ namespace Gazelle
             drawingManager = container.Resolve<DrawingManager>();
             foreach (var behavior in container.ResolveAll<IDrawingBehavior>())
             {
-                behaviors.Add(behavior.GraphicalObjectType, behavior);
+                if (!behaviors.ContainsKey(behavior.GraphicalObjectType))
+                {
+                    behaviors.Add(behavior.GraphicalObjectType, behavior);
+                }
             }
         }
 
