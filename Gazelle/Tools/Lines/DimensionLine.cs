@@ -182,11 +182,11 @@ namespace Gazelle.Tools.Lines
                 switch (Orientation)
                 {
                     case Orientation.Horizontal:
-                        lg_ = new LineGeometry(new Point(X1 + (StrokeThickness / 2) + 1, Y1 - ExtrudeWidth), new Point(X1 + (StrokeThickness / 2) + 1, Y1 + ExtrudeWidth));
+                        lg_ = new LineGeometry(new Point(X1 + (StrokeThickness / 2), Y1 - ExtrudeWidth), new Point(X1 + (StrokeThickness / 2), Y1 + ExtrudeWidth));
                         lg__ = new LineGeometry(new Point(X2 + (StrokeThickness / 2) - 1, Y2 - ExtrudeWidth), new Point(X2 + (StrokeThickness / 2) - 1, Y2 + ExtrudeWidth));
                         break;
                     case Orientation.Vertical:
-                        lg_ = new LineGeometry(new Point(X1 - ExtrudeWidth, Y1 + (StrokeThickness / 2) + 1), new Point(X1 + ExtrudeWidth, Y1 + (StrokeThickness / 2) + 1));
+                        lg_ = new LineGeometry(new Point(X1 - ExtrudeWidth, Y1 + (StrokeThickness / 2)), new Point(X1 + ExtrudeWidth, Y1 + (StrokeThickness / 2)));
                         lg__ = new LineGeometry(new Point(X2 - ExtrudeWidth, Y2 + (StrokeThickness / 2) - 1), new Point(X2 + ExtrudeWidth, Y2 + (StrokeThickness / 2) - 1));
                         break;
                     default:
