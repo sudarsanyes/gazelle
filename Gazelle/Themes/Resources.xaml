@@ -1,0 +1,18 @@
+﻿<ResourceDictionary x:Class="Gazelle.Themes.Resources" 
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Gazelle.Themes">
+
+    <Style x:Key="RibbonGroupHeader"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="LightGray" />
+        <Setter Property="FontSize"
+                Value="10" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="Margin"
+                Value="3,3,3,3" />
+    </Style>
+
+</ResourceDictionary>

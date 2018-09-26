@@ -31,12 +31,14 @@ namespace Gazelle.Tools.Lines
             }
         }
 
+        public int Order { get => 22; }
+
         public FrameworkElement ToolBarItem
         {
             get
             {
-                var button = new Button() { Content = "Horizontal Dimension Line", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
-                button.Click += (sender, args) => 
+                var button = new HorizontalDimensionLineToolBarItem() { DataContext = PropertiesViewModel };
+                button.HDimensionLineButton.Click += (sender, args) => 
                 {
                     Editor.ActiveTool = this;
                 };
@@ -47,11 +49,14 @@ namespace Gazelle.Tools.Lines
         [Dependency()]
         public IGraphicalEditor Editor { get; set; }
 
+        [Dependency()]
+        public ShapePropertiesViewModel PropertiesViewModel { get; set; }
+
         public bool CanToolBeAddedToEditor => true;
 
         public void OnActivated()
         {
-            Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorLine"]).Cursor;
+            Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorHorizontalLine"]).Cursor;
         }
 
         public void OnDeactivated()
@@ -69,8 +74,8 @@ namespace Gazelle.Tools.Lines
             xBinding.Mode = BindingMode.OneWay;
             defaultLine.SetBinding(HorizontalDimensionLine.X2Property, xBinding);
             defaultLine.Y1 = 5;
-            defaultLine.StrokeThickness = 1;
-            defaultLine.Stroke = Brushes.Black;
+            defaultLine.StrokeThickness = PropertiesViewModel.StrokeThickness;
+            defaultLine.Stroke = PropertiesViewModel.SelectedColor;
             Canvas.SetLeft(defaultLine, bounds.X);
             Canvas.SetTop(defaultLine, bounds.Y);
             return defaultLine;

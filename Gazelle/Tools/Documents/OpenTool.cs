@@ -28,16 +28,18 @@ namespace Gazelle.Tools.Documents
         {
             get
             {
-                return "Open";
+                return "File";
             }
         }
+
+        public int Order { get => 0; }
 
         public FrameworkElement ToolBarItem
         {
             get
             {
-                var button = new Button() { Content = "Open Image", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
-                button.Click += (sender, args) => 
+                var button = new OpenToolBarItem();
+                button.OpenFileButton.Click += (sender, args) =>
                 {
                     System.Windows.Forms.OpenFileDialog openDialog = new System.Windows.Forms.OpenFileDialog();
                     openDialog.Filter = "Image files |*.png;*.jpg;*.jpeg;*.bmp";

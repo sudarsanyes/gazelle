@@ -32,6 +32,8 @@ namespace Gazelle.Tools.Pictograms
             }
         }
 
+        public int Order { get => 30; }
+
         public FrameworkElement ToolBarItem
         {
             get

@@ -39,9 +39,9 @@ namespace Gazelle.Tools
             var region = regionManager.Regions["Tools"];
             var tools = container.ResolveAll<ITool>();
 
-            foreach (var tool in tools)
+            foreach (var tool in tools.OrderBy(x => x.Order))
             {
-                region.Add(tool.ToolBarItem);
+                region.Add(tool);
             }
         }
 

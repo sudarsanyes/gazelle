@@ -28,6 +28,8 @@ namespace Gazelle.Tools.Views
             }
         }
 
+        public int Order { get => 32; }
+
         public FrameworkElement ToolBarItem
         {
             get

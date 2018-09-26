@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Gazelle.Common.Editor;
+using Gazelle.Themes;
 using Gazelle.Tools;
 using Gazelle.Tools.Core;
 using Gazelle.Tools.Documents;
@@ -30,6 +31,7 @@ namespace Gazelle
 
         protected override void InitializeShell()
         {
+            Application.Current.Resources.MergedDictionaries.Add(new Resources());
             Application.Current.MainWindow.Show();
         }
 
@@ -47,9 +49,9 @@ namespace Gazelle
             Container.RegisterType<IGraphicalEditor, MainWindow>(new ContainerControlledLifetimeManager());
             Container.RegisterType<DrawingManager>(new ContainerControlledLifetimeManager());
 
+            Container.RegisterType<ITool, OpenTool>("OpenTool");
             Container.RegisterType<ITool, Pointer>("Pointer");
             Container.RegisterType<ITool, EraserTool>("Eraser");
-            Container.RegisterType<ITool, OpenTool>("NewTool");
             Container.RegisterType<ITool, ExportTool>("ExportTool");
             Container.RegisterType<ITool, LineTool>("Line");
             Container.RegisterType<ITool, HorizontalDimensionLineTool>("HorizontalDimensionLine");

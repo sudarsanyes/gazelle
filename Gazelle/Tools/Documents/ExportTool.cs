@@ -32,12 +32,15 @@ namespace Gazelle.Tools.Documents
             }
         }
 
+        public int Order { get => 1; }
+
+
         public FrameworkElement ToolBarItem
         {
             get
             {
-                var button = new Button() { Content = "Export as Image", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
-                button.Click += (sender, args) => 
+                var button = new ExportToolBarItem();
+                button.ExportPngButton.Click += (sender, args) => 
                 {
                     System.Windows.Forms.SaveFileDialog fileDialog = new System.Windows.Forms.SaveFileDialog();
                     fileDialog.Filter = "Image files |*.png";

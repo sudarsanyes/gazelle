@@ -2,7 +2,33 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:prism="http://prismlibrary.com/" Loaded="UserControl_Loaded">
-    <StackPanel prism:RegionManager.RegionName="Tools"
-                Orientation="Horizontal" />
-    <!--<TabControl prism:RegionManager.RegionName="Tools" />-->
+    <!--<StackPanel prism:RegionManager.RegionName="Tools"
+                Orientation="Horizontal" />-->
+    <TabControl prism:RegionManager.RegionName="Tools">
+        <TabControl.Resources>
+            <Style TargetType="{x:Type TabItem}">
+                <Setter Property="MinWidth"
+                        Value="60" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=Order}"
+                                 Value="0">
+                        <Setter Property="Background"
+                                Value="DeepSkyBlue" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </TabControl.Resources>
+        <TabControl.ItemTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding Path=Name}" Typography.Capitals="AllSmallCaps" />
+            </DataTemplate>
+        </TabControl.ItemTemplate>
+        <TabControl.ContentTemplate>
+            <DataTemplate>
+                <Border x:Name="PART_ContentControlContainer">
+                    <ContentControl Content="{Binding Path=ToolBarItem}" />
+                </Border>
+            </DataTemplate>
+        </TabControl.ContentTemplate>
+    </TabControl>
 </UserControl>

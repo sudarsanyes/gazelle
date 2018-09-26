@@ -140,6 +140,7 @@ namespace Gazelle
         {
             return DrawingCanvas.Children[DrawingCanvas.Children.Count - 1] as FrameworkElement;
         }
+
         private void SaveToPng(FrameworkElement visual, string fileName)
         {
             var encoder = new PngBitmapEncoder();

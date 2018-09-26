@@ -31,6 +31,8 @@ namespace Gazelle.Tools.Lines
             }
         }
 
+        public int Order { get => 21; }
+
         public FrameworkElement ToolBarItem
         {
             get

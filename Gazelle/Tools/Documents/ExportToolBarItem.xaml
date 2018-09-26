@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="Gazelle.Tools.Documents.ExportToolBarItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Gazelle.Tools.Documents">
+    <StackPanel Orientation="Horizontal"
+                Height="81">
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="ExportPngButton"
+                    Padding="8,3,8,3"
+                    Background="Transparent"
+                    BorderThickness="0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/Gazelle;component/Resources/Images/save-2.png" />
+                    <TextBlock Text="Export as PNG"
+                               VerticalAlignment="Center"
+                               Margin="9,0,0,0" />
+                </StackPanel>
+            </Button>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center">
+                <Button x:Name="ExportJpgButton"
+                        Padding="8,3,8,3"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="24"
+                        HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/Gazelle;component/Resources/Images/save-4.png" />
+                        <TextBlock Text="Export as JPG"
+                                   VerticalAlignment="Center"
+                                   Margin="9,0,0,0" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="ExportBmpButton"
+                        Padding="8,3,8,3"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="24"
+                        HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/Gazelle;component/Resources/Images/save-4.png" />
+                        <TextBlock Text="Export as BMP"
+                                   VerticalAlignment="Center"
+                                   Margin="9,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+            <TextBlock Grid.Row="1"
+                       Text="Save"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+        <Border Margin="3,3,8,3"
+                Width="1"
+                BorderThickness="1"
+                BorderBrush="LightGray" />
+    </StackPanel>
+</UserControl>

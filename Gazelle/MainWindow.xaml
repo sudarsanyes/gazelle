@@ -9,16 +9,20 @@
         mc:Ignorable="d"
         Title="Gazelle"
         Height="450"
-        Width="800"
+        Width="800" WindowState="Maximized"
         Loaded="OnWindowLoaded">
     <Window.Resources>
         <!-- Cursors -->
         <TextBlock x:Key="CursorEraser"
-                   Cursor="Resources/ArrowWithEraser.cur" />
+                   Cursor="Resources/Cursors/ArrowWithEraser.cur" />
         <TextBlock x:Key="CursorLine"
-                   Cursor="Resources/ArrowWithLine.cur" />
+                   Cursor="Resources/Cursors/ArrowWithLine.cur" />
+        <TextBlock x:Key="CursorHorizontalLine"
+                   Cursor="Resources/Cursors/ArrowWithHLine.cur" />
+        <TextBlock x:Key="CursorVerticalLine"
+                   Cursor="Resources/Cursors/ArrowWithVLine.cur" />
         <TextBlock x:Key="CursorRectangle"
-                   Cursor="Resources/ArrowWithBox.cur" />
+                   Cursor="Resources/Cursors/ArrowWithBox.cur" />
 
         <!-- Styles -->
         <Style x:Key="ToolBarButtonStyle"
@@ -44,8 +48,12 @@
         </Grid.RowDefinitions>
         <tools:ToolBarPanel Grid.Row="0" />
         <Grid Grid.Row="1"
-              Background="LightGray"
+              Background="Transparent"
               Focusable="True">
+            <Image Source="pack://application:,,,/Gazelle;component/Resources/Logos/Gazelle.png"
+                   Width="640"
+                   Height="480"
+                   Opacity="0.3" />
             <ScrollViewer x:Name="DrawingCanvasScrollViewer" HorizontalScrollBarVisibility="Auto"
                           VerticalScrollBarVisibility="Auto">
                 <Grid x:Name="DrawingCanvasContainer" 
@@ -58,7 +66,7 @@
                            Stretch="None">
                         <Image.Effect>
                             <DropShadowEffect ShadowDepth="0"
-                                              BlurRadius="8" />
+                                              BlurRadius="21" />
                         </Image.Effect>
                     </Image>
                     <Canvas x:Name="DrawingCanvas"

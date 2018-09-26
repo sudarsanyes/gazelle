@@ -31,12 +31,14 @@ namespace Gazelle.Tools.Lines
             }
         }
 
+        public int Order { get => 23; }
+
         public FrameworkElement ToolBarItem
         {
             get
             {
-                var button = new Button() { Content = "Vertical Dimension Line", Style = Application.Current.MainWindow.Resources["ToolBarButtonStyle"] as Style };
-                button.Click += (sender, args) => 
+                var button = new VerticalDimensionLineToolBarItem() { DataContext = PropertiesViewModel };
+                button.VDimensionLineButton.Click += (sender, args) => 
                 {
                     Editor.ActiveTool = this;
                 };
@@ -47,11 +49,14 @@ namespace Gazelle.Tools.Lines
         [Dependency()]
         public IGraphicalEditor Editor { get; set; }
 
+        [Dependency()]
+        public ShapePropertiesViewModel PropertiesViewModel { get; set; }
+
         public bool CanToolBeAddedToEditor => true;
 
         public void OnActivated()
         {
-            Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorLine"]).Cursor;
+            Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorVerticalLine"]).Cursor;
         }
 
         public void OnDeactivated()

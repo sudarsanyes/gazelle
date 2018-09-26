@@ -30,6 +30,8 @@ namespace Gazelle.Tools.Shapes
             }
         }
 
+        public int Order { get => 24; }
+
         public FrameworkElement ToolBarItem
         {
             get
