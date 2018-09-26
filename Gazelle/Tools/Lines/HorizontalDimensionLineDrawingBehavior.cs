@@ -28,71 +28,18 @@ namespace Gazelle.Tools.Lines
             var objectBeingEdited = editor.GetPreviouslyAddedObject() as HorizontalDimensionLine;
             var currentOrigin = args.GetPosition(editor.Canvas as IInputElement);
             var resizeOrigin = currentOrigin - startPoint;
-            //if (resizeOrigin.X < 0 && resizeOrigin.Y > 0)
-            //{
-            //    Canvas.SetLeft(objectBeingEdited, currentOrigin.X);
-            //    objectBeingEdited.Width = Math.Abs(resizeOrigin.X);
-            //    objectBeingEdited.Height = Math.Abs(resizeOrigin.Y);
+            Canvas.SetTop(objectBeingEdited, startPoint.Y);
+            Canvas.SetLeft(objectBeingEdited, startPoint.X);
+            objectBeingEdited.Width = Math.Abs(resizeOrigin.X);
+            objectBeingEdited.Height = Math.Abs(resizeOrigin.Y);
 
-            //    objectBeingEdited.X1 = 0;
-            //    var yBinding = new Binding("Height");
-            //    yBinding.Mode = BindingMode.OneWay;
-            //    objectBeingEdited.SetBinding(Line.Y1Property, yBinding); 
+            objectBeingEdited.X1 = 0;
+            objectBeingEdited.Y1 = 5;
 
-            //    var xBinding = new Binding("Width");
-            //    xBinding.Mode = BindingMode.OneWay;
-            //    objectBeingEdited.SetBinding(Line.X2Property, xBinding);
-            //    objectBeingEdited.Y2 = 0;
-            //}
-            //if (resizeOrigin.X < 0 && resizeOrigin.Y < 0)
-            //{
-            //    Canvas.SetLeft(objectBeingEdited, currentOrigin.X);
-            //    Canvas.SetTop(objectBeingEdited, currentOrigin.Y);
-            //    objectBeingEdited.Width = Math.Abs(resizeOrigin.X);
-            //    objectBeingEdited.Height = Math.Abs(resizeOrigin.Y);
-
-            //    objectBeingEdited.X1 = 0;
-            //    objectBeingEdited.Y1 = 0;
-
-            //    var xBinding = new Binding("Width");
-            //    xBinding.Mode = BindingMode.OneWay;
-            //    objectBeingEdited.SetBinding(Line.X2Property, xBinding);
-            //    var yBinding = new Binding("Height");
-            //    yBinding.Mode = BindingMode.OneWay;
-            //    objectBeingEdited.SetBinding(Line.Y2Property, yBinding);
-            //}
-            //if (resizeOrigin.X > 0 && resizeOrigin.Y < 0)
-            //{
-            //    Canvas.SetTop(objectBeingEdited, currentOrigin.Y);
-            //    objectBeingEdited.Width = Math.Abs(resizeOrigin.X);
-            //    objectBeingEdited.Height = Math.Abs(resizeOrigin.Y);
-
-            //    objectBeingEdited.X1 = 0;
-            //    var yBinding = new Binding("Height");
-            //    yBinding.Mode = BindingMode.OneWay;
-            //    objectBeingEdited.SetBinding(Line.Y1Property, yBinding);
-
-            //    var xBinding = new Binding("Width");
-            //    xBinding.Mode = BindingMode.OneWay;
-            //    objectBeingEdited.SetBinding(Line.X2Property, xBinding);
-            //    objectBeingEdited.Y2 = 0;
-
-            //}
-            //if (resizeOrigin.X > 0 && resizeOrigin.Y > 0)
-            //{
-                Canvas.SetTop(objectBeingEdited, startPoint.Y);
-                Canvas.SetLeft(objectBeingEdited, startPoint.X);
-                objectBeingEdited.Width = Math.Abs(resizeOrigin.X);
-                objectBeingEdited.Height = Math.Abs(resizeOrigin.Y);
-
-                objectBeingEdited.X1 = 0;
-                objectBeingEdited.Y1 = 5;
-
-                var xBinding = new Binding("Width");
-                xBinding.Mode = BindingMode.OneWay;
-                objectBeingEdited.SetBinding(HorizontalDimensionLine.X2Property, xBinding);
-                objectBeingEdited.Y2 = 5;
-            //}
+            var xBinding = new Binding("Width");
+            xBinding.Mode = BindingMode.OneWay;
+            objectBeingEdited.SetBinding(HorizontalDimensionLine.X2Property, xBinding);
+            objectBeingEdited.Y2 = 5;
         }
     }
 }

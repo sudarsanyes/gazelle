@@ -69,15 +69,15 @@ namespace Gazelle.Tools.Lines
             defaultLine.DataContext = defaultLine;
             defaultLine.X1 = 5;
             defaultLine.Y1 = 5;
-            defaultLine.MinWidth = 10;
             var xBinding = new Binding("Width");
             xBinding.Mode = BindingMode.OneWay;
             defaultLine.SetBinding(Line.X2Property, xBinding);
             var yBinding = new Binding("Height");
             yBinding.Mode = BindingMode.OneWay;
             defaultLine.SetBinding(Line.Y2Property, yBinding);
-            defaultLine.StrokeThickness = 1;
-            defaultLine.Stroke = Brushes.Black;
+            defaultLine.MinWidth = 10;
+            defaultLine.StrokeThickness = PropertiesViewModel.StrokeThickness;
+            defaultLine.Stroke = PropertiesViewModel.SelectedColor;
             Canvas.SetLeft(defaultLine, bounds.X);
             Canvas.SetTop(defaultLine, bounds.Y);
             return defaultLine;

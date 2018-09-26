@@ -69,11 +69,11 @@ namespace Gazelle.Tools.Lines
             defaultLine.DataContext = defaultLine;
             defaultLine.X1 = 0;
             defaultLine.Y1 = 5;
-            defaultLine.MinHeight = 10;
             var xBinding = new Binding("Width");
             xBinding.Mode = BindingMode.OneWay;
             defaultLine.SetBinding(HorizontalDimensionLine.X2Property, xBinding);
             defaultLine.Y1 = 5;
+            defaultLine.MinHeight = 10;
             defaultLine.StrokeThickness = PropertiesViewModel.StrokeThickness;
             defaultLine.Stroke = PropertiesViewModel.SelectedColor;
             Canvas.SetLeft(defaultLine, bounds.X);
