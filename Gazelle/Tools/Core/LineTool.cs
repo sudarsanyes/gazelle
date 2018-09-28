@@ -11,9 +11,9 @@ using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace Gazelle.Tools.Lines
+namespace Gazelle.Tools.Core
 {
-    public class LineTool : ITool
+    public class LineTool : IPrimitiveTool
     {
         public Type GraphicalObjectType
         {
@@ -51,6 +51,8 @@ namespace Gazelle.Tools.Lines
 
         public bool CanToolBeAddedToEditor => true;
 
+        public ShapePropertiesViewModel PropertiesViewModel { get; set; }
+
         public void OnActivated()
         {
             Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorLine"]).Cursor;
@@ -64,16 +66,16 @@ namespace Gazelle.Tools.Lines
         {
             var defaultLine = Activator.CreateInstance(GraphicalObjectType) as Line;
             defaultLine.DataContext = defaultLine;
-            defaultLine.X1 = 3;
-            defaultLine.Y1 = 3;
+            defaultLine.X1 = 0;
+            defaultLine.Y1 = 0;
             var xBinding = new Binding("Width");
             xBinding.Mode = BindingMode.OneWay;
             defaultLine.SetBinding(Line.X2Property, xBinding);
             var yBinding = new Binding("Height");
             yBinding.Mode = BindingMode.OneWay;
             defaultLine.SetBinding(Line.Y2Property, yBinding);
-            defaultLine.StrokeThickness = 1;
-            defaultLine.Stroke = Brushes.Black;
+            defaultLine.StrokeThickness = PropertiesViewModel.StrokeThickness;
+            defaultLine.Stroke = PropertiesViewModel.SelectedColor;
             Canvas.SetLeft(defaultLine, bounds.X);
             Canvas.SetTop(defaultLine, bounds.Y);
             return defaultLine;

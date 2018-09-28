@@ -23,6 +23,8 @@
                    Cursor="Resources/Cursors/ArrowWithVLine.cur" />
         <TextBlock x:Key="CursorRectangle"
                    Cursor="Resources/Cursors/ArrowWithBox.cur" />
+        <TextBlock x:Key="CursorEllipse"
+                   Cursor="Resources/Cursors/ArrowWithOval.cur" />
 
         <!-- Styles -->
         <Style x:Key="ToolBarButtonStyle"

@@ -19,7 +19,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:Stepper}">
-                    <Border BorderThickness="{TemplateBinding Property=BorderThickness}" BorderBrush="{TemplateBinding Property=BorderBrush}" Width="{TemplateBinding Property=Width}"
+                    <Border BorderThickness="{TemplateBinding Property=BorderThickness}"
+                            BorderBrush="{TemplateBinding Property=BorderBrush}"
+                            Width="{TemplateBinding Property=Width}"
                             Height="{TemplateBinding Property=Height}">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -37,7 +39,8 @@
                                      Grid.Column="1"
                                      Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Value}"
                                      HorizontalContentAlignment="{TemplateBinding Property=HorizontalContentAlignment}"
-                                     VerticalContentAlignment="{TemplateBinding Property=VerticalContentAlignment}" BorderThickness="0" />
+                                     VerticalContentAlignment="{TemplateBinding Property=VerticalContentAlignment}"
+                                     BorderThickness="0" />
                             <RepeatButton Grid.Column="2"
                                           Content="+"
                                           Command="{x:Static controls:Stepper.Increment}"
@@ -48,4 +51,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>

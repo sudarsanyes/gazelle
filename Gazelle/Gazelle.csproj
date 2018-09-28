@@ -86,15 +86,17 @@
     <Compile Include="Themes\Resources.xaml.cs">
       <DependentUpon>Resources.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Documents\ExportTool.cs" />
-    <Compile Include="Tools\Documents\ExportToolBarItem.xaml.cs">
-      <DependentUpon>ExportToolBarItem.xaml</DependentUpon>
+    <Compile Include="Tools\Core\PrimitiveToolBarItem.xaml.cs">
+      <DependentUpon>PrimitiveToolBarItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Documents\OpenToolBarItem.xaml.cs">
-      <DependentUpon>OpenToolBarItem.xaml</DependentUpon>
+    <Compile Include="Tools\Core\IPrimitiveTool.cs" />
+    <Compile Include="Tools\Core\PrimitiveTool.cs" />
+    <Compile Include="Tools\Core\EllipseTool.cs" />
+    <Compile Include="Tools\Documents\FileToolBarItem.xaml.cs">
+      <DependentUpon>FileToolBarItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tools\Lines\DimensionLine.cs" />
-    <Compile Include="Tools\Documents\OpenTool.cs" />
+    <Compile Include="Tools\Documents\FileTool.cs" />
     <Compile Include="Tools\Lines\VerticalDimensionLineToolBarItem.xaml.cs">
       <DependentUpon>VerticalDimensionLineToolBarItem.xaml</DependentUpon>
     </Compile>
@@ -106,17 +108,17 @@
     <Compile Include="Tools\Lines\HorizontalDimensionLineDrawingBehavior.cs" />
     <Compile Include="Tools\Lines\VerticalDimensionLineTool.cs" />
     <Compile Include="Tools\Pictograms\ImageTool.cs" />
-    <Compile Include="Tools\Lines\LineDrawingBehavior.cs" />
+    <Compile Include="Tools\Core\LineDrawingBehavior.cs" />
     <Compile Include="Tools\Core\EraserTool.cs" />
     <Compile Include="Tools\Core\Pointer.cs" />
     <Compile Include="Tools\ShapePropertiesViewModel.cs" />
     <Compile Include="Tools\Views\ZoomOutTool.cs" />
     <Compile Include="Tools\Views\ZoomInTool.cs" />
-    <Compile Include="Tools\Shapes\RectangleTool.cs" />
+    <Compile Include="Tools\Core\RectangleTool.cs" />
     <Compile Include="Tools\ToolBarPanel.xaml.cs">
       <DependentUpon>ToolBarPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Lines\LineTool.cs" />
+    <Compile Include="Tools\Core\LineTool.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,11 +140,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Tools\Documents\ExportToolBarItem.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Tools\Core\PrimitiveToolBarItem.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Tools\Documents\OpenToolBarItem.xaml">
+    <Page Include="Tools\Documents\FileToolBarItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -646,6 +648,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\save-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\004-pencil-rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\line.png" />
+    <Resource Include="Resources\Images\rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ellipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\005-pencilx32.png" />
+    <Resource Include="Resources\Images\ellipsex32.png" />
+    <Resource Include="Resources\Images\rectanglex32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

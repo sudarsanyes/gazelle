@@ -94,7 +94,14 @@ namespace Gazelle
 
         public void ExportAsImage(string fileName)
         {
+            //ZoomToActual();
             SaveToPng(DrawingCanvasContainer, fileName);
+        }
+
+        public void ZoomToActual()
+        {
+            CanvasTransform.ScaleX = 1;
+            CanvasTransform.ScaleY = 1;
         }
 
         public void ZoomIn()
@@ -149,7 +156,7 @@ namespace Gazelle
 
         private void SaveUsingEncoder(FrameworkElement visual, string fileName, BitmapEncoder encoder)
         {
-            RenderTargetBitmap bitmap = new RenderTargetBitmap((int)visual.ActualWidth, (int)visual.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+            RenderTargetBitmap bitmap = new RenderTargetBitmap((int)visual.ActualWidth, (int)visual.ActualHeight, 120, 120, PixelFormats.Pbgra32);
             bitmap.Render(visual);
             BitmapFrame frame = BitmapFrame.Create(bitmap);
             encoder.Frames.Add(frame);

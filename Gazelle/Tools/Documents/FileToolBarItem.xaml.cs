@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Gazelle.Tools.Documents
 {
     /// <summary>
-    /// Interaction logic for ExportToolBarItem.xaml
+    /// Interaction logic for FileToolBarItem.xaml
     /// </summary>
-    public partial class ExportToolBarItem : UserControl
+    public partial class FileToolBarItem : UserControl
     {
-        public ExportToolBarItem()
+        public FileToolBarItem()
         {
             InitializeComponent();
         }

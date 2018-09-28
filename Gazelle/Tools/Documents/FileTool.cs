@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace Gazelle.Tools.Documents
 {
-    public class OpenTool : ITool
+    public class FileTool : ITool
     {
         public Type GraphicalObjectType
         {
@@ -38,7 +38,7 @@ namespace Gazelle.Tools.Documents
         {
             get
             {
-                var button = new OpenToolBarItem();
+                var button = new FileToolBarItem();
                 button.OpenFileButton.Click += (sender, args) =>
                 {
                     System.Windows.Forms.OpenFileDialog openDialog = new System.Windows.Forms.OpenFileDialog();
@@ -47,6 +47,16 @@ namespace Gazelle.Tools.Documents
                     if (result == System.Windows.Forms.DialogResult.OK)
                     {
                         Editor.OpenDocument(openDialog.FileName);
+                    }
+                };
+                button.ExportPngButton.Click += (sender, args) =>
+                {
+                    System.Windows.Forms.SaveFileDialog fileDialog = new System.Windows.Forms.SaveFileDialog();
+                    fileDialog.Filter = "Image files |*.png";
+                    var result = fileDialog.ShowDialog();
+                    if (result == System.Windows.Forms.DialogResult.OK)
+                    {
+                        Editor.ExportAsImage(fileDialog.FileName);
                     }
                 };
                 return button;

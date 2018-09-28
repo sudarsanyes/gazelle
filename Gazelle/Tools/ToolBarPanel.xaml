@@ -26,7 +26,7 @@
         <TabControl.ContentTemplate>
             <DataTemplate>
                 <Border x:Name="PART_ContentControlContainer">
-                    <ContentControl Content="{Binding Path=ToolBarItem}" />
+                    <ContentControl Content="{Binding Path=ToolBarItem}" UseLayoutRounding="True" SnapsToDevicePixels="True" />
                 </Border>
             </DataTemplate>
         </TabControl.ContentTemplate>

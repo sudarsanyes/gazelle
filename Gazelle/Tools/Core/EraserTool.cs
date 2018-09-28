@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace Gazelle.Tools.Core
 {
-    public class EraserTool : ITool
+    public class EraserTool : IPrimitiveTool
     {
         public Type GraphicalObjectType
         {
@@ -49,7 +49,9 @@ namespace Gazelle.Tools.Core
         [Dependency()]
         public IGraphicalEditor Editor { get; set; }
 
-        public bool CanToolBeAddedToEditor => false; 
+        public bool CanToolBeAddedToEditor => false;
+
+        public ShapePropertiesViewModel PropertiesViewModel { get; set; }
 
         public void OnActivated()
         {

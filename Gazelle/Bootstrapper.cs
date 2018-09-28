@@ -14,7 +14,6 @@ using Gazelle.Tools.Core;
 using Gazelle.Tools.Documents;
 using Gazelle.Tools.Lines;
 using Gazelle.Tools.Pictograms;
-using Gazelle.Tools.Shapes;
 using Gazelle.Tools.Views;
 using Microsoft.Practices.Unity;
 using Prism.Regions;
@@ -49,21 +48,31 @@ namespace Gazelle
             Container.RegisterType<IGraphicalEditor, MainWindow>(new ContainerControlledLifetimeManager());
             Container.RegisterType<DrawingManager>(new ContainerControlledLifetimeManager());
 
-            Container.RegisterType<ITool, OpenTool>("OpenTool");
-            Container.RegisterType<ITool, Pointer>("Pointer");
-            Container.RegisterType<ITool, EraserTool>("Eraser");
-            Container.RegisterType<ITool, ExportTool>("ExportTool");
-            Container.RegisterType<ITool, LineTool>("Line");
-            Container.RegisterType<ITool, HorizontalDimensionLineTool>("HorizontalDimensionLine");
-            Container.RegisterType<ITool, VerticalDimensionLineTool>("VerticalDimensionLine");
-            Container.RegisterType<ITool, RectangleTool>("RectangleObject");
-            Container.RegisterType<ITool, ImageTool>("ImageTool");
-            Container.RegisterType<ITool, ZoomInTool>("ZoomInTool");
-            Container.RegisterType<ITool, ZoomOutTool>("ZoomOutTool");
+            // File tool contains all file related operations - all functions in this should should be non-interactive. 
+            Container.RegisterType<ITool, FileTool>("FileTool", new ContainerControlledLifetimeManager());
 
-            Container.RegisterType<IDrawingBehavior, LineDrawingBehavior>("LineDrawingBehavior");
-            Container.RegisterType<IDrawingBehavior, HorizontalDimensionLineDrawingBehavior>("HorizontalDimensionLineDrawingBehavior");
-            Container.RegisterType<IDrawingBehavior, VerticalDimensionLineDrawingBehavior>("VerticalDimensionLineDrawingBehavior");
+            // ShapePropertiesViewModel. 
+            Container.RegisterType<ShapePropertiesViewModel>("ShapePropertiesViewModel");
+
+            // These are special drawing tools. 
+            Container.RegisterType<ITool, HorizontalDimensionLineTool>("HorizontalDimensionLine", new ContainerControlledLifetimeManager());
+            Container.RegisterType<ITool, VerticalDimensionLineTool>("VerticalDimensionLine", new ContainerControlledLifetimeManager());
+            Container.RegisterType<ITool, ImageTool>("ImageTool", new ContainerControlledLifetimeManager());
+            Container.RegisterType<ITool, ZoomInTool>("ZoomInTool", new ContainerControlledLifetimeManager());
+            Container.RegisterType<ITool, ZoomOutTool>("ZoomOutTool", new ContainerControlledLifetimeManager());
+
+            // All primitive tools are grouped under a common tool called IPrimitiveTools. Refer to PrimitiveTool.cs for more information. 
+            Container.RegisterType<ITool, PrimitiveTool>("Primitives", new ContainerControlledLifetimeManager());
+            Container.RegisterType<Pointer>("Pointer", new ContainerControlledLifetimeManager());
+            Container.RegisterType<EraserTool>("Eraser", new ContainerControlledLifetimeManager());
+            Container.RegisterType<LineTool>("Line", new ContainerControlledLifetimeManager());
+            Container.RegisterType<RectangleTool>("RectangleObject", new ContainerControlledLifetimeManager());
+            Container.RegisterType<EllipseTool>("EllipseObject", new ContainerControlledLifetimeManager());
+
+            // Special drawing behaviors. 
+            Container.RegisterType<IDrawingBehavior, LineDrawingBehavior>("LineDrawingBehavior", new ContainerControlledLifetimeManager());
+            Container.RegisterType<IDrawingBehavior, HorizontalDimensionLineDrawingBehavior>("HorizontalDimensionLineDrawingBehavior", new ContainerControlledLifetimeManager());
+            Container.RegisterType<IDrawingBehavior, VerticalDimensionLineDrawingBehavior>("VerticalDimensionLineDrawingBehavior", new ContainerControlledLifetimeManager());
         }
     }
 

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Gazelle.Tools.Documents
+namespace Gazelle.Tools.Core
 {
     /// <summary>
-    /// Interaction logic for OpenToolBarItem.xaml
+    /// Interaction logic for PrimitiveToolBarItem.xaml
     /// </summary>
-    public partial class OpenToolBarItem : UserControl
+    public partial class PrimitiveToolBarItem : UserControl
     {
-        public OpenToolBarItem()
+        public PrimitiveToolBarItem()
         {
             InitializeComponent();
         }

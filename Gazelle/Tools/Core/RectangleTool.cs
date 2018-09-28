@@ -10,9 +10,9 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace Gazelle.Tools.Shapes
+namespace Gazelle.Tools.Core
 {
-    public class RectangleTool : ITool
+    public class RectangleTool : IPrimitiveTool
     {
         public Type GraphicalObjectType
         {
@@ -50,6 +50,8 @@ namespace Gazelle.Tools.Shapes
 
         public bool CanToolBeAddedToEditor => true;
 
+        public ShapePropertiesViewModel PropertiesViewModel { get; set; }
+
         public void OnActivated()
         {
             Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorRectangle"]).Cursor;
@@ -64,8 +66,8 @@ namespace Gazelle.Tools.Shapes
             var defaultRectangle = Activator.CreateInstance(GraphicalObjectType) as Rectangle;
             defaultRectangle.Width = bounds.Width;
             defaultRectangle.Height = bounds.Height;
-            defaultRectangle.StrokeThickness = 1;
-            defaultRectangle.Stroke = Brushes.Black;
+            defaultRectangle.StrokeThickness = PropertiesViewModel.StrokeThickness;
+            defaultRectangle.Stroke = PropertiesViewModel.SelectedColor;
             Canvas.SetLeft(defaultRectangle, bounds.X);
             Canvas.SetTop(defaultRectangle, bounds.Y);
             return defaultRectangle;

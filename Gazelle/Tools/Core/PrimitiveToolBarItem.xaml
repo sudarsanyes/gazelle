@@ -1,0 +1,173 @@
+﻿<UserControl x:Class="Gazelle.Tools.Core.PrimitiveToolBarItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Gazelle.Controls">
+    <StackPanel Orientation="Horizontal"
+                Height="81">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button x:Name="Pointer"
+                    Grid.Row="0"
+                    Padding="8,3,8,3"
+                    Background="Transparent"
+                    BorderThickness="0">
+                <Image Source="pack://application:,,,/Gazelle;component/Resources/Images/arrow.png" />
+            </Button>
+            <TextBlock Grid.Row="1"
+                       Text="Pointer"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+        <Border Margin="3,3,8,3"
+                Width="1"
+                BorderThickness="1"
+                BorderBrush="LightGray" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center">
+                <Button x:Name="Line"
+                        Padding="8,3,8,3"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="24"
+                        HorizontalAlignment="Left">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"
+                               Source="pack://application:,,,/Gazelle;component/Resources/Images/005-pencilx32.png" />
+                        <TextBlock Grid.Column="1"
+                                   Text="Line"
+                                   VerticalAlignment="Center"
+                                   Margin="9,0,0,0" />
+                    </Grid>
+                </Button>
+                <Button x:Name="Rectangle"
+                        Padding="8,3,8,3"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="24"
+                        HorizontalAlignment="Left">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"
+                               Source="pack://application:,,,/Gazelle;component/Resources/Images/rectanglex32.png" />
+                        <TextBlock Grid.Column="1"
+                                   Text="Rectangle"
+                                   VerticalAlignment="Center"
+                                   Margin="9,0,0,0" />
+                    </Grid>
+                </Button>
+                <Button x:Name="Ellipse"
+                        Padding="8,3,8,3"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="24"
+                        HorizontalAlignment="Left">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"
+                               Source="pack://application:,,,/Gazelle;component/Resources/Images/ellipsex32.png" />
+                        <TextBlock Grid.Column="1"
+                                   Text="Ellipse"
+                                   VerticalAlignment="Center"
+                                   Margin="9,0,0,0" />
+                    </Grid>
+                </Button>
+            </StackPanel>
+            <TextBlock Grid.Row="1"
+                       Text="Shapes"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+        <Border Margin="3,3,8,3"
+                Width="1"
+                BorderThickness="1"
+                BorderBrush="LightGray" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button x:Name="Eraser"
+                    Grid.Row="0"
+                    Padding="8,3,8,3"
+                    Background="Transparent"
+                    BorderThickness="0">
+                <Image Source="pack://application:,,,/Gazelle;component/Resources/Images/009-eraser.png" />
+            </Button>
+            <TextBlock Grid.Row="1"
+                       Text="Eraser"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+        <Border Margin="3,3,8,3"
+                Width="1"
+                BorderThickness="1"
+                BorderBrush="LightGray" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="0"
+                     ItemsSource="{Binding Path=ColorPalette}"
+                     SelectedItem="{Binding Path=SelectedColor}"
+                     BorderThickness="0"
+                     MaxWidth="360">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="20"
+                                Height="20"
+                                Background="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Margin"
+                                Value="0,0,12,6" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"
+                                   MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBox}}, Path=MaxWidth}" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <TextBlock Grid.Row="1"
+                       Text="Line Color"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+        <Border Margin="3,3,8,3"
+                Width="1"
+                BorderThickness="1"
+                BorderBrush="LightGray" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <controls:Stepper Grid.Row="0"
+                              Value="{Binding Path=StrokeThickness, Mode=TwoWay}"
+                              Minimum="1"
+                              Maximum="10"
+                              Step="1" />
+            <TextBlock Grid.Row="1"
+                       Text="Line Thickness"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+    </StackPanel>
+</UserControl>

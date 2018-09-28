@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace Gazelle.Tools.Core
 {
-    public class Pointer : ITool
+    public class Pointer : IPrimitiveTool
     {
         public Type GraphicalObjectType
         {
@@ -46,7 +46,9 @@ namespace Gazelle.Tools.Core
         [Dependency()]
         public IGraphicalEditor Editor { get; set; }
 
-        public bool CanToolBeAddedToEditor => false; 
+        public bool CanToolBeAddedToEditor => false;
+
+        public ShapePropertiesViewModel PropertiesViewModel { get; set; }
 
         public void OnActivated()
         {

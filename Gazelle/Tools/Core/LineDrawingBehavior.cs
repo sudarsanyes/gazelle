@@ -10,7 +10,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Shapes;
 
-namespace Gazelle.Tools.Lines
+namespace Gazelle.Tools.Core
 {
     public class LineDrawingBehavior : IDrawingBehavior
     {
