@@ -108,7 +108,7 @@ namespace Gazelle.Tools.Core
             }
         }
 
-        public bool CanToolBeAddedToEditor => true;
+        public bool CanToolBeAddedToEditor => ActiveSubTool.CanToolBeAddedToEditor;
 
         public void OnActivated()
         {

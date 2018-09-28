@@ -55,11 +55,15 @@ namespace Gazelle
             Container.RegisterType<ShapePropertiesViewModel>("ShapePropertiesViewModel");
 
             // These are special drawing tools. 
-            Container.RegisterType<ITool, HorizontalDimensionLineTool>("HorizontalDimensionLine", new ContainerControlledLifetimeManager());
-            Container.RegisterType<ITool, VerticalDimensionLineTool>("VerticalDimensionLine", new ContainerControlledLifetimeManager());
+            Container.RegisterType<ITool, DimensionLineTool>("DimensionLineTool", new ContainerControlledLifetimeManager());
+            Container.RegisterType<HorizontalDimensionLineTool>("HorizontalDimensionLine", new ContainerControlledLifetimeManager());
+            Container.RegisterType<VerticalDimensionLineTool>("VerticalDimensionLine", new ContainerControlledLifetimeManager());
+
             Container.RegisterType<ITool, ImageTool>("ImageTool", new ContainerControlledLifetimeManager());
-            Container.RegisterType<ITool, ZoomInTool>("ZoomInTool", new ContainerControlledLifetimeManager());
-            Container.RegisterType<ITool, ZoomOutTool>("ZoomOutTool", new ContainerControlledLifetimeManager());
+
+            Container.RegisterType<ITool, ViewTool>("ViewTool", new ContainerControlledLifetimeManager());
+            Container.RegisterType<ZoomInTool>("ZoomInTool", new ContainerControlledLifetimeManager());
+            Container.RegisterType<ZoomOutTool>("ZoomOutTool", new ContainerControlledLifetimeManager());
 
             // All primitive tools are grouped under a common tool called IPrimitiveTools. Refer to PrimitiveTool.cs for more information. 
             Container.RegisterType<ITool, PrimitiveTool>("Primitives", new ContainerControlledLifetimeManager());

@@ -97,6 +97,10 @@
     </Compile>
     <Compile Include="Tools\Lines\DimensionLine.cs" />
     <Compile Include="Tools\Documents\FileTool.cs" />
+    <Compile Include="Tools\Lines\DimensionLineToolBarItem.xaml.cs">
+      <DependentUpon>DimensionLineToolBarItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\Lines\DimensionLineTool.cs" />
     <Compile Include="Tools\Lines\VerticalDimensionLineToolBarItem.xaml.cs">
       <DependentUpon>VerticalDimensionLineToolBarItem.xaml</DependentUpon>
     </Compile>
@@ -112,6 +116,10 @@
     <Compile Include="Tools\Core\EraserTool.cs" />
     <Compile Include="Tools\Core\Pointer.cs" />
     <Compile Include="Tools\ShapePropertiesViewModel.cs" />
+    <Compile Include="Tools\Views\ViewTool.cs" />
+    <Compile Include="Tools\Views\ViewToolBarItem.xaml.cs">
+      <DependentUpon>ViewToolBarItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tools\Views\ZoomOutTool.cs" />
     <Compile Include="Tools\Views\ZoomInTool.cs" />
     <Compile Include="Tools\Core\RectangleTool.cs" />
@@ -148,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Tools\Lines\DimensionLineToolBarItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Tools\Lines\VerticalDimensionLineToolBarItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -159,6 +171,10 @@
     <Page Include="Tools\ToolBarPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tools\Views\ViewToolBarItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -666,6 +682,10 @@
     <Resource Include="Resources\Images\005-pencilx32.png" />
     <Resource Include="Resources\Images\ellipsex32.png" />
     <Resource Include="Resources\Images\rectanglex32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\zoom-inx64.png" />
+    <Resource Include="Resources\Images\zoom-outx64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

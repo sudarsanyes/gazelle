@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="Gazelle.Tools.Lines.DimensionLineToolBarItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:controls="clr-namespace:Gazelle.Controls">
+    <StackPanel Orientation="Horizontal"
+                Height="81">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button x:Name="HDimensionLineButton" 
+                    Grid.Row="0"
+                    Padding="8,3,8,3"
+                    Background="Transparent"
+                    BorderThickness="0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/Gazelle;component/Resources/Images/028-compass.png" />
+                    <TextBlock Text="Horizontal Measuring Line"
+                               VerticalAlignment="Center"
+                               Margin="9,0,0,0" />
+                </StackPanel>
+            </Button>
+            <TextBlock Grid.Row="1"
+                       Text="Dimension Line"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+        <Border Margin="3,3,8,3"
+                Width="1"
+                BorderThickness="1"
+                BorderBrush="LightGray" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button x:Name="VDimensionLineButton"
+                    Grid.Row="0"
+                    Padding="8,3,8,3"
+                    Background="Transparent"
+                    BorderThickness="0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/Gazelle;component/Resources/Images/029-compass.png" />
+                    <TextBlock Text="Vertical Measuring Line"
+                               VerticalAlignment="Center"
+                               Margin="9,0,0,0" />
+                </StackPanel>
+            </Button>
+            <TextBlock Grid.Row="1"
+                       Text="Dimension Line"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+        <Border Margin="3,3,8,3"
+                Width="1"
+                BorderThickness="1"
+                BorderBrush="LightGray" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="0"
+                     ItemsSource="{Binding Path=ColorPalette}"
+                     SelectedItem="{Binding Path=SelectedColor}"
+                     BorderThickness="0"
+                     MaxWidth="360">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="20"
+                                Height="20"
+                                Background="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Margin"
+                                Value="0,0,12,6" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"
+                                   MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBox}}, Path=MaxWidth}" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <TextBlock Grid.Row="1"
+                       Text="Line Color"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+        <Border Margin="3,3,8,3"
+                Width="1"
+                BorderThickness="1"
+                BorderBrush="LightGray" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <controls:Stepper Grid.Row="0" Value="{Binding Path=StrokeThickness, Mode=TwoWay}"
+                              Minimum="1"
+                              Maximum="10"
+                              Step="1" />
+            <TextBlock Grid.Row="1"
+                       Text="Line Thickness"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+    </StackPanel>
+</UserControl>

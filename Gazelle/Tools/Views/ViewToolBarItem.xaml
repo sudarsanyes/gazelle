@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Gazelle.Tools.Views.ViewToolBarItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:controls="clr-namespace:Gazelle.Controls">
+    <StackPanel Orientation="Horizontal"
+                Height="81">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+                <Button x:Name="ZoomInButton" 
+                    Padding="8,3,8,3"
+                    Background="Transparent"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/Gazelle;component/Resources/Images/zoom-inx64.png" />
+                        <TextBlock Text="Zoom In"
+                               VerticalAlignment="Center"
+                               Margin="9,0,0,0" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="ZoomOutButton" 
+                    Padding="8,3,8,3"
+                    Background="Transparent"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/Gazelle;component/Resources/Images/zoom-outx64.png" />
+                        <TextBlock Text="Zoom Out"
+                               VerticalAlignment="Center"
+                               Margin="9,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <TextBlock Grid.Row="1"
+                       Text="Zoom"
+                       Style="{DynamicResource ResourceKey=RibbonGroupHeader}" />
+        </Grid>
+        <Border Margin="3,3,8,3"
+                Width="1"
+                BorderThickness="1"
+                BorderBrush="LightGray" />
+    </StackPanel>
+</UserControl>

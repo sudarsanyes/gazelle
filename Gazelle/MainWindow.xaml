@@ -53,8 +53,7 @@
               Background="Transparent"
               Focusable="True">
             <Image Source="pack://application:,,,/Gazelle;component/Resources/Logos/Gazelle.png"
-                   Width="640"
-                   Height="480"
+                   Width="210"
                    Opacity="0.3" />
             <ScrollViewer x:Name="DrawingCanvasScrollViewer" HorizontalScrollBarVisibility="Auto"
                           VerticalScrollBarVisibility="Auto">
