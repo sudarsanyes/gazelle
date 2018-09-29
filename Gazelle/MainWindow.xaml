@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         Title="Gazelle"
         Height="450"
-        Width="800" WindowState="Maximized"
+        Width="800"
+        WindowState="Maximized"
         Loaded="OnWindowLoaded">
     <Window.Resources>
         <!-- Cursors -->
@@ -55,9 +56,10 @@
             <Image Source="pack://application:,,,/Gazelle;component/Resources/Logos/Gazelle.png"
                    Width="210"
                    Opacity="0.3" />
-            <ScrollViewer x:Name="DrawingCanvasScrollViewer" HorizontalScrollBarVisibility="Auto"
+            <ScrollViewer x:Name="DrawingCanvasScrollViewer"
+                          HorizontalScrollBarVisibility="Auto"
                           VerticalScrollBarVisibility="Auto">
-                <Grid x:Name="DrawingCanvasContainer" 
+                <Grid x:Name="DrawingCanvasContainer"
                       Margin="30"
                       RenderTransformOrigin="0.5,0.5">
                     <Grid.RenderTransform>

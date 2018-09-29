@@ -7,6 +7,9 @@ using System.Windows;
 
 namespace Gazelle.Common.Editor
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface ITool
     {
         void OnActivated();
@@ -16,6 +19,8 @@ namespace Gazelle.Common.Editor
         Type GraphicalObjectType { get; }
 
         string Name { get; }
+
+        int Order { get; }
 
         FrameworkElement ToolBarItem { get; }
 
