@@ -56,7 +56,7 @@ namespace Gazelle.Tools.Lines
 
         public void OnActivated()
         {
-            Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorHorizontalLine"]).Cursor;
+            Editor.Canvas.Cursor = ((TextBlock)App.Current.MainWindow.Resources["CursorVerticalLine"]).Cursor;
         }
 
         public void OnDeactivated()

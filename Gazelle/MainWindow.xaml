@@ -69,7 +69,7 @@
                            Stretch="None">
                         <Image.Effect>
                             <DropShadowEffect ShadowDepth="0"
-                                              BlurRadius="21" />
+                                              BlurRadius="21" Opacity="0.3" />
                         </Image.Effect>
                     </Image>
                     <Canvas x:Name="DrawingCanvas"
