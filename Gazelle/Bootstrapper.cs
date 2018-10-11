@@ -58,6 +58,8 @@ namespace Gazelle
             Container.RegisterType<ITool, DimensionLineTool>("DimensionLineTool", new ContainerControlledLifetimeManager());
             Container.RegisterType<HorizontalDimensionLineTool>("HorizontalDimensionLine", new ContainerControlledLifetimeManager());
             Container.RegisterType<VerticalDimensionLineTool>("VerticalDimensionLine", new ContainerControlledLifetimeManager());
+            Container.RegisterType<HorizontalRuler>("HRuler", new ContainerControlledLifetimeManager());
+            Container.RegisterType<VerticalRuler>("VRuler", new ContainerControlledLifetimeManager());
 
             Container.RegisterType<ITool, ImageTool>("ImageTool", new ContainerControlledLifetimeManager());
 

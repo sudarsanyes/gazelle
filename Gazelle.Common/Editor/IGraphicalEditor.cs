@@ -15,6 +15,8 @@ namespace Gazelle.Common.Editor
 
         IDrawingBehavior ActiveBehavior { get; }
 
+        string DocumentTitle { get; set; }
+
         void OpenDocument(string fileName);
 
         void AddObject(FrameworkElement obj);

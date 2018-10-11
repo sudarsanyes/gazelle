@@ -101,6 +101,14 @@
       <DependentUpon>DimensionLineToolBarItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tools\Lines\DimensionLineTool.cs" />
+    <Compile Include="Tools\Lines\VerticalRulerToolBarItem.xaml.cs">
+      <DependentUpon>VerticalRulerToolBarItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\Lines\HorizontalRulerToolBarItem.xaml.cs">
+      <DependentUpon>HorizontalRulerToolBarItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\Lines\VerticalRuler.cs" />
+    <Compile Include="Tools\Lines\VerticalRulerTool.cs" />
     <Compile Include="Tools\Lines\VerticalDimensionLineToolBarItem.xaml.cs">
       <DependentUpon>VerticalDimensionLineToolBarItem.xaml</DependentUpon>
     </Compile>
@@ -115,6 +123,8 @@
     <Compile Include="Tools\Core\LineDrawingBehavior.cs" />
     <Compile Include="Tools\Core\EraserTool.cs" />
     <Compile Include="Tools\Core\Pointer.cs" />
+    <Compile Include="Tools\Lines\HorizontalRulerTool.cs" />
+    <Compile Include="Tools\Lines\HorizontalRuler.cs" />
     <Compile Include="Tools\ShapePropertiesViewModel.cs" />
     <Compile Include="Tools\Views\ViewTool.cs" />
     <Compile Include="Tools\Views\ViewToolBarItem.xaml.cs">
@@ -157,6 +167,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Tools\Lines\DimensionLineToolBarItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tools\Lines\VerticalRulerToolBarItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tools\Lines\HorizontalRulerToolBarItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -686,6 +704,10 @@
   <ItemGroup>
     <Resource Include="Resources\Images\zoom-inx64.png" />
     <Resource Include="Resources\Images\zoom-outx64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\028-compass-line.png" />
+    <Resource Include="Resources\Images\029-compass-line.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

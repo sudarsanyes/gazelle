@@ -6,7 +6,7 @@
     <Style x:Key="RibbonGroupHeader"
            TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground"
-                Value="LightGray" />
+                Value="Gray" />
         <Setter Property="FontSize"
                 Value="10" />
         <Setter Property="HorizontalAlignment"

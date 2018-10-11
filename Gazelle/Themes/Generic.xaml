@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Gazelle"
+                    xmlns:lines="clr-namespace:Gazelle.Tools.Lines"
                     xmlns:controls="clr-namespace:Gazelle.Controls">
 
     <Style TargetType="{x:Type controls:Stepper}">
@@ -46,6 +46,59 @@
                                           Command="{x:Static controls:Stepper.Increment}"
                                           BorderThickness="0" />
                         </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type lines:HorizontalRuler}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type lines:HorizontalRuler}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <DockPanel>
+                            <TextBox DockPanel.Dock="Top"
+                                     Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ActualWidth, Mode=OneWay, StringFormat={}0}" Background="Transparent"
+                                     Foreground="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Stroke}"
+                                     BorderThickness="0"
+                                     HorizontalAlignment="Center" />
+                            <lines:HorizontalDimensionLine X1="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=X1}"
+                                                           Y1="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Y1}"
+                                                           X2="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=X2}"
+                                                           Y2="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Y2}"
+                                                           StrokeThickness="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=StrokeThickness}"
+                                                           Stroke="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Stroke}" />
+                        </DockPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type lines:VerticalRuler}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type lines:VerticalRuler}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <DockPanel>
+                            <TextBox DockPanel.Dock="Left"
+                                     Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=ActualHeight, Mode=OneWay, StringFormat={}0}"
+                                     Foreground="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Stroke}"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     VerticalAlignment="Center" />
+                            <lines:VerticalDimensionLine X1="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=X1}"
+                                                           Y1="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Y1}"
+                                                           X2="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=X2}"
+                                                           Y2="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Y2}"
+                                                           StrokeThickness="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=StrokeThickness}"
+                                                           Stroke="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Stroke}" />
+                        </DockPanel>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

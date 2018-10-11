@@ -23,6 +23,10 @@ namespace Gazelle.Tools.Lines
 
         public VerticalDimensionLineTool VSubTool { get; private set; }
 
+        public HorizontalRulerTool HRulerSubTool { get; private set; }
+
+        public VerticalRulerTool VRulerSubTool { get; private set; }
+
         public Type GraphicalObjectType
         {
             get
@@ -35,7 +39,7 @@ namespace Gazelle.Tools.Lines
         {
             get
             {
-                return "Dimension Line";
+                return "Dimension Lines";
             }
         }
 
@@ -54,6 +58,14 @@ namespace Gazelle.Tools.Lines
                 {
                     Editor.ActiveTool = VSubTool;
                 };
+                button.HRulerButton.Click += (sender, args) => 
+                {
+                    Editor.ActiveTool = HRulerSubTool;
+                };
+                button.VRulerButton.Click += (sender, args) =>
+                {
+                    Editor.ActiveTool = VRulerSubTool;
+                };
                 return button;
             }
         }
@@ -67,6 +79,8 @@ namespace Gazelle.Tools.Lines
                 container = value;
                 HSubTool = Container.Resolve<HorizontalDimensionLineTool>();
                 VSubTool = Container.Resolve<VerticalDimensionLineTool>();
+                HRulerSubTool = Container.Resolve<HorizontalRulerTool>();
+                VRulerSubTool = Container.Resolve<VerticalRulerTool>();
             }
         }
 
@@ -84,6 +98,8 @@ namespace Gazelle.Tools.Lines
                 propertiesViewModel = value;
                 HSubTool.PropertiesViewModel = propertiesViewModel;
                 VSubTool.PropertiesViewModel = propertiesViewModel;
+                HRulerSubTool.PropertiesViewModel = propertiesViewModel;
+                VRulerSubTool.PropertiesViewModel = propertiesViewModel;
             }
         }
 

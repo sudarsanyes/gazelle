@@ -71,6 +71,19 @@ namespace Gazelle
 
         public IDrawingBehavior ActiveBehavior { get; private set; }
 
+        private string documentTitle;
+
+        public string DocumentTitle
+        {
+            get { return documentTitle; }
+
+            set
+            {
+                documentTitle = value;
+                Title = string.Format("Gazelle - {0}", documentTitle);
+            }
+        }
+
         public void AddObject(FrameworkElement obj)
         {
             DrawingCanvas.Children.Add(obj);
@@ -83,11 +96,14 @@ namespace Gazelle
 
         public FrameworkElement GetObjectBehindCursor(double tolerance = 0.0)
         {
-            return DrawingCanvas.InputHitTest(Mouse.GetPosition(Canvas)) as FrameworkElement;
+            var currentElement = DrawingCanvas.InputHitTest(Mouse.GetPosition(Canvas)) as FrameworkElement;
+            // Sometimes, an element can be primitive, in such a case, recursively discover the parent. 
+            return GetLogicalObjectBehindCursor(currentElement);
         }
 
         public void OpenDocument(string fileName)
         {
+            DocumentTitle = fileName;
             ImageCanvas.Source = new BitmapImage(new Uri(fileName));
             Reposition();
         }
@@ -124,6 +140,24 @@ namespace Gazelle
         {
             DrawingCanvasScrollViewer.ScrollToHorizontalOffset(DrawingCanvasScrollViewer.ScrollableWidth / 2);
             DrawingCanvasScrollViewer.ScrollToVerticalOffset(DrawingCanvasScrollViewer.ScrollableHeight / 2);
+        }
+
+        /// <summary>
+        /// Gets the logical object behind cursor.
+        /// </summary>
+        /// <param name="parent">The parent.</param>
+        /// <returns></returns>
+        internal FrameworkElement GetLogicalObjectBehindCursor(FrameworkElement parent)
+        {
+            // Recursively get the object behind cursor - object is the one which is contained in the DrawingCanvas. 
+            if (DrawingCanvas.Children.Contains(parent) || parent == null)
+            {
+                return parent;
+            }
+            else
+            {
+                return GetLogicalObjectBehindCursor(VisualTreeHelper.GetParent(parent) as FrameworkElement);
+            }
         }
 
         private void OnWindowLoaded(object sender, RoutedEventArgs e)
