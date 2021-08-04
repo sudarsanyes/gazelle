@@ -10,8 +10,7 @@ jobs:
           mkdir -p "${{ runner.tool_cache }}"
       - name: Setup Node 10
         uses: softprops/action-gh-release@v1
-        with:
-          node-version: 1.0
+
       - name: Archive tool cache
         run: |
           cd "${{ runner.tool_cache }}"
