@@ -14,7 +14,8 @@ jobs:
         run: ls
       - name: Archive tool cache
         run: |
-          cd "${{ runner.tool_cache }}"
+          cd "${{ runner.tool_cache }}" 
+          ls 
           Compress-Archive * tool_cache.zip
       - name: Upload tool cache artifact
         uses: actions/upload-artifact@v2
