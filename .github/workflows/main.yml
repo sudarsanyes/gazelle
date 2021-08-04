@@ -10,10 +10,6 @@ jobs:
           mkdir -p "${{ runner.tool_cache }}"
       - name: Setup Actions GH Release
         uses: softprops/action-gh-release@v1
-      - name: list
-        run: |
-             cd "C:\hostedtoolcache\windows"
-             ls
       - name: Archive tool cache
         run: |
           cd "${{ runner.tool_cache }}" 
