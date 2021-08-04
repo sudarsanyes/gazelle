@@ -2,21 +2,21 @@ name: Upload Node.js 10 and 12 tool cache
 on: push
 jobs:
   upload_tool_cache:
-    runs-on: ubuntu-18.04
+    runs-on: windows-latest
     steps:
       - name: Clear any existing tool cache
         run: |
           mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
           mkdir -p "${{ runner.tool_cache }}"
-      - name: Setup Node 10
+      - name: Setup Actions GH Release
         uses: softprops/action-gh-release@v1
       - name: list
         run: ls
       - name: Archive tool cache
         run: |
           cd "${{ runner.tool_cache }}"
-          tar -czf tool_cache.tar.gz *
+          Compress-Archive * tool_cache.zip
       - name: Upload tool cache artifact
         uses: actions/upload-artifact@v2
         with:
-          path: ${{runner.tool_cache}}/tool_cache.tar.gz
+          path: ${{runner.tool_cache}}/tool_cache.zip
